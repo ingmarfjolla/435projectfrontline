@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Frontline Workers</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<div class="wrapper">
+  <marquee behavior="alternate"><span class="marquee">!!!WEAR YOUR MASKS!!!</span></marquee>
+</div>
+
+<body style="background-color:black;">
+  <div style="margin-bottom: .5in;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/frontline">Frontline Workers <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/sqlthings">SQL</a>
+          <a class="nav-item nav-link" href="https://www.theguardian.com/us-news/2020/apr/13/lost-on-the-frontline-us-healthcare-coronavirus-deaths" target="_blank">Submit</a>
+        </div>
+      </div>
+  </div>
+ 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="card-columns ">
+          <% for (var i =0; i <data.length;  i++ ) { %>
+          <div class="card bg-dark text-white border-info mb-5" style="width:18rem;">
+              <img class="card-img-top " src=<%=data[i].image %> alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%=data[i].name %>, <%=data[i].age %></h5>
+                <p class="card-text"><%=data[i].tribute %></p>
+              </div>
+              <ul class="list-group list-group-flush bg-dark">
+                <li class="list-group-item list-group-item-dark">Occupation:<%=data[i].occupation %></li>
+                <li class="list-group-item list-group-item-dark ">Workplace:<%=data[i].workplace %></li>
+              </ul>
+              <div class="card-footer">
+                <small class="text-muted">Left us on <%=data[i].deathdate %></small>
+              </div>
+            </div>
+  
+            <% } %> 
+        </div>    
+      </div>
+    </div>   <!--container fluid-->
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fetch using MySQL and Node.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    table, td, th {  
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 50%;
+     
+    }
+    .table-data{
+        position: relative;
+      left:150px;
+      top:100px;
+    }
+    th, td {
+      padding: 15px;
+    }
+    </style>
+</head>
+<body>
+    <div class="table-data">
+<h2>Display Data using Node.js & MySQL</h2>
+    <table border="1">
+        <tr>
+            <th>S.N</th>
+            <th>Name</th>
+            <th>age</th>
+            <th>occupation</th>
+            <th>workplace</th>
+            <th>deathdate</th>
+            <th>img</th>
+            <th>tribute</th>
+        </tr>
+        
+        <%
+        if(data.length!=0){
+        var i=1;
+        data.forEach(function(data){
+        %>
+        <tr>
+            <td><%=i; %></td>
+            <td><%=data.name %></td>
+            <td><%=data.age %></td>
+            <td><%=data.occupation %></td>
+            <td><%=data.workplace %></td>
+            <td><%=data.deathdate %></td>
+            <td><%=data.image %></td>
+            <td><%=data.tribute %></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html>
